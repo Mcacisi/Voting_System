@@ -33,7 +33,7 @@ public class Voting_System_App extends javax.swing.JFrame {
         txtVoterID = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtSurname = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbCandidate = new javax.swing.JComboBox<>();
         btnVote = new javax.swing.JToggleButton();
         btnClear = new javax.swing.JToggleButton();
 
@@ -51,11 +51,16 @@ public class Voting_System_App extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("SELECT THE CANDIDATE YOU WISH TO VOTE FOR");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "                                        CHOOSE YOUR POLITICAL PARTY", "ANC", "EFF", "DA", "IFP", "MK PARTY", "PA", "FF+", "UDM", "PAC", "ActionSA", "ACDP", " " }));
+        cmbCandidate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "                                        CHOOSE YOUR POLITICAL PARTY", "ANC", "EFF", "DA", "IFP", "MK PARTY", "PA", "FF+", "UDM", "PAC", "ActionSA", "ACDP", " " }));
 
         btnVote.setText("VOTE");
 
         btnClear.setText("CLEAR_FIELDS");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,7 +84,7 @@ public class Voting_System_App extends javax.swing.JFrame {
                             .addComponent(txtVoterID)
                             .addComponent(txtSurname)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbCandidate, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(242, Short.MAX_VALUE))
         );
@@ -101,7 +106,7 @@ public class Voting_System_App extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbCandidate, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVote, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -112,6 +117,31 @@ public class Voting_System_App extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        clear();
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    
+    
+    //METHODS WITH CODE IMPLEMENTATION
+    private void clear(){
+        txtVoterID.setText("");
+        txtName.setText("");
+        txtSurname.setText("");
+        cmbCandidate.setSelectedIndex(0);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -151,7 +181,7 @@ public class Voting_System_App extends javax.swing.JFrame {
     private javax.swing.JLabel Jlabel1;
     private javax.swing.JToggleButton btnClear;
     private javax.swing.JToggleButton btnVote;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cmbCandidate;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
