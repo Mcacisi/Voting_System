@@ -4,12 +4,22 @@
  */
 package votingApp;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import voting.Voter;
+
 /**
  *
  * @author Mcacisi Sithole
  */
 public class Voting_System_App extends javax.swing.JFrame {
 
+    //DECLARE VARIABLES PROGRAM WILL NEED
+    private ArrayList <Voter> voteList = new ArrayList<> ();
+    private String voter_ID, name, surname, candidate;
+    
+    
+    
     /**
      * Creates new form Voting_System_App
      */
@@ -54,10 +64,18 @@ public class Voting_System_App extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("SELECT THE CANDIDATE YOU WISH TO VOTE FOR");
 
-        cmbCandidate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "                                        CHOOSE YOUR POLITICAL PARTY", "ANC", "EFF", "DA", "IFP", "MK PARTY", "PA", "FF+", "UDM", "PAC", "ActionSA", "ACDP", " " }));
+        cmbCandidate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cmbCandidate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "                        CHOOSE YOUR POLITICAL PARTY", "ANC", "EFF", "DA", "IFP", "MK PARTY", "PA", "FF+", "UDM", "PAC", "ActionSA", "ACDP", " " }));
 
+        btnVote.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnVote.setText("VOTE");
+        btnVote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoteActionPerformed(evt);
+            }
+        });
 
+        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnClear.setText("CLEAR_FIELDS");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +88,13 @@ public class Voting_System_App extends javax.swing.JFrame {
         lblDisplay.setRows(5);
         jScrollPane1.setViewportView(lblDisplay);
 
+        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,10 +148,11 @@ public class Voting_System_App extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(cmbCandidate, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnVote, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnVote, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
@@ -141,6 +166,14 @@ public class Voting_System_App extends javax.swing.JFrame {
         clear();
     }//GEN-LAST:event_btnClearActionPerformed
 
+    private void btnVoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoteActionPerformed
+        castVote();
+    }//GEN-LAST:event_btnVoteActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnExitActionPerformed
+
     
     
     
@@ -152,6 +185,39 @@ public class Voting_System_App extends javax.swing.JFrame {
         cmbCandidate.setSelectedIndex(0);
     }
     
+    
+    private void castVote(){
+        voter_ID = txtVoterID.getText().trim();
+               if(voter_ID.isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Please enter your ID NUMBER","Missing data input",JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                 } 
+        
+        
+               
+        name = txtName.getText().trim();
+              if(name.isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Please enter your NAME","Missing data input",JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                 } 
+              
+              
+              
+              
+        surname = txtSurname.getText().trim();
+              if(surname.isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Please enter your SURNAME","Missing data input",JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                 } 
+              
+              
+              
+        candidate = (String)cmbCandidate.getSelectedItem();
+              if(cmbCandidate.getSelectedIndex() == 0){
+                  JOptionPane.showMessageDialog(this, "Please select political party");
+              }
+        
+    }
     
     
     

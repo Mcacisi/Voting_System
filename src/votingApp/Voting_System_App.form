@@ -82,10 +82,12 @@
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Component id="cmbCandidate" min="-2" pref="57" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnVote" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="btnClear" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnExit" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnVote" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="btnClear" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="461" max="-2" attributes="0"/>
@@ -136,9 +138,12 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbCandidate">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="1"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="13">
-            <StringItem index="0" value="                                        CHOOSE YOUR POLITICAL PARTY"/>
+            <StringItem index="0" value="                        CHOOSE YOUR POLITICAL PARTY"/>
             <StringItem index="1" value="ANC"/>
             <StringItem index="2" value="EFF"/>
             <StringItem index="3" value="DA"/>
@@ -160,11 +165,20 @@
     </Component>
     <Component class="javax.swing.JToggleButton" name="btnVote">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="VOTE"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="btnClear">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="CLEAR_FIELDS"/>
       </Properties>
       <Events>
@@ -189,8 +203,14 @@
     </Container>
     <Component class="javax.swing.JToggleButton" name="btnExit">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Exit"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
