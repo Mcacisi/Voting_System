@@ -7,6 +7,7 @@ package voting;
  */
 public class Voter {
     //VARIABLES USED FOT THE SYSTEM
+   
     private String voterID, name, surname, candidateVoted;
 
     

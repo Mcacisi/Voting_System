@@ -20,6 +20,7 @@ public class Voting_System_App extends javax.swing.JFrame {
     
     
     
+    
     /**
      * Creates new form Voting_System_App
      */
@@ -65,7 +66,7 @@ public class Voting_System_App extends javax.swing.JFrame {
         jLabel4.setText("SELECT THE CANDIDATE YOU WISH TO VOTE FOR");
 
         cmbCandidate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        cmbCandidate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "                        CHOOSE YOUR POLITICAL PARTY", "ANC", "EFF", "DA", "IFP", "MK PARTY", "PA", "FF+", "UDM", "PAC", "ActionSA", "ACDP", " " }));
+        cmbCandidate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "                        CHOOSE YOUR POLITICAL PARTY", "   ANC", "   EFF", "   DA", "   IFP", "   MK PARTY", "   PA", "   FF+", "   UDM", "   PAC", "   ActionSA", "   ACDP", " " }));
 
         btnVote.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnVote.setText("VOTE");
@@ -177,7 +178,15 @@ public class Voting_System_App extends javax.swing.JFrame {
     
     
     
-    //METHODS WITH CODE IMPLEMENTATION TO PRACTISE CLEAN CODE
+    /*METHODS WITH CODE IMPLEMENTATION TO PRACTISE CLEAN CODE
+      CLEAR FIELDS()
+      EXIT SYSTEM()
+      CAST VOTE()
+      SAVE TO FILE()
+      RELOAD FROM FILE()
+      ADD TO DATABASE()
+    */
+    
     private void clear(){
         txtVoterID.setText("");
         txtName.setText("");
@@ -187,15 +196,32 @@ public class Voting_System_App extends javax.swing.JFrame {
     
     
     private void castVote(){
+        /*
+          GET ALL VARIABLES FROM USER WITH CORRECT DATA NEEDED
+          WITH EXCEPTIONAL HANDLING TO PREVENT SYSTEM FROM CRASHING
+        */
+        
+    try
+       { 
         voter_ID = txtVoterID.getText().trim();
                if(voter_ID.isEmpty()){
-                    JOptionPane.showMessageDialog(this, "Please enter your ID NUMBER","Missing data input",JOptionPane.INFORMATION_MESSAGE);
+                   JOptionPane.showMessageDialog(this, "Please enter your ID NUMBER","Missing data input",JOptionPane.INFORMATION_MESSAGE);
                     return;
-                 } 
+               }
+               
+               Integer.parseInt(voter_ID);
+               
+       } catch(NumberFormatException e){
+              JOptionPane.showMessageDialog(this, "Only Integers are allowed in your\n ID NUMBER", "Incorrect data input", JOptionPane.INFORMATION_MESSAGE);
+              return;
+       } 
+        
+        
+              
         
         
                
-        name = txtName.getText().trim();
+        name = txtName.getText().trim().toUpperCase();
               if(name.isEmpty()){
                     JOptionPane.showMessageDialog(this, "Please enter your NAME","Missing data input",JOptionPane.INFORMATION_MESSAGE);
                     return;
@@ -204,7 +230,7 @@ public class Voting_System_App extends javax.swing.JFrame {
               
               
               
-        surname = txtSurname.getText().trim();
+        surname = txtSurname.getText().trim().toUpperCase();
               if(surname.isEmpty()){
                     JOptionPane.showMessageDialog(this, "Please enter your SURNAME","Missing data input",JOptionPane.INFORMATION_MESSAGE);
                     return;
@@ -215,6 +241,7 @@ public class Voting_System_App extends javax.swing.JFrame {
         candidate = (String)cmbCandidate.getSelectedItem();
               if(cmbCandidate.getSelectedIndex() == 0){
                   JOptionPane.showMessageDialog(this, "Please select political party");
+                  return;
               }
         
     }

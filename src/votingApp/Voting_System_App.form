@@ -144,17 +144,17 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="13">
             <StringItem index="0" value="                        CHOOSE YOUR POLITICAL PARTY"/>
-            <StringItem index="1" value="ANC"/>
-            <StringItem index="2" value="EFF"/>
-            <StringItem index="3" value="DA"/>
-            <StringItem index="4" value="IFP"/>
-            <StringItem index="5" value="MK PARTY"/>
-            <StringItem index="6" value="PA"/>
-            <StringItem index="7" value="FF+"/>
-            <StringItem index="8" value="UDM"/>
-            <StringItem index="9" value="PAC"/>
-            <StringItem index="10" value="ActionSA"/>
-            <StringItem index="11" value="ACDP"/>
+            <StringItem index="1" value="   ANC"/>
+            <StringItem index="2" value="   EFF"/>
+            <StringItem index="3" value="   DA"/>
+            <StringItem index="4" value="   IFP"/>
+            <StringItem index="5" value="   MK PARTY"/>
+            <StringItem index="6" value="   PA"/>
+            <StringItem index="7" value="   FF+"/>
+            <StringItem index="8" value="   UDM"/>
+            <StringItem index="9" value="   PAC"/>
+            <StringItem index="10" value="   ActionSA"/>
+            <StringItem index="11" value="   ACDP"/>
             <StringItem index="12" value=" "/>
           </StringArray>
         </Property>
