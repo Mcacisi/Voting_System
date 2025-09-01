@@ -243,8 +243,37 @@ public class Voting_System_App extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(this, "Please select political party");
                   return;
               }
+              
+              
+              /*
+                CREATE A VOTE OBJECT OF THE VOTER.CLASS
+                CHECK IF ID ALREADY EXISTS IN VOTE LIST BEFORE YOU ADD A NEW VOTER OBJECT
+              */
+              
+              Voter vote = new Voter(voter_ID,name,surname,candidate);
+              
+              for(Voter v : voteList){
+                  
+                  if(v.getVoterID().equals(voter_ID)){
+                     JOptionPane.showMessageDialog(this, "Already voted", "Duplicate vote", JOptionPane.INFORMATION_MESSAGE);
+                     return;
+                  }
+              }
+              
+              
+              voteList.add(vote);
+              JOptionPane.showMessageDialog(this, "Vote Successfully", "Completed", JOptionPane.PLAIN_MESSAGE);
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
