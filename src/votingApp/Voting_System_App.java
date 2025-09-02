@@ -343,7 +343,7 @@ public class Voting_System_App extends javax.swing.JFrame {
         
         StringBuilder builder = new StringBuilder();
         
-        builder.append(String.format("%-15s %-15s %-15s %-15s","VOTER_ID", "NAME", "SURNAME","CANDIDATE\n" ));
+        builder.append(String.format("%-15s %-15s %-15s %-15s\n","VOTER_ID", "NAME", "SURNAME","CANDIDATE" ));
         
         
         for(Voter v : voteList){       
