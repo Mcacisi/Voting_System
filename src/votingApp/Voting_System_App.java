@@ -4,6 +4,9 @@
  */
 package votingApp;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import voting.Voter;
@@ -186,7 +189,6 @@ public class Voting_System_App extends javax.swing.JFrame {
       RELOAD FROM FILE()
       ADD TO DATABASE()
     */
-    
     private void clear(){
         txtVoterID.setText("");
         txtName.setText("");
@@ -195,11 +197,15 @@ public class Voting_System_App extends javax.swing.JFrame {
     }
     
     
-    private void castVote(){
-        /*
+    
+    
+    
+    /*
           GET ALL VARIABLES FROM USER WITH CORRECT DATA NEEDED
           WITH EXCEPTIONAL HANDLING TO PREVENT SYSTEM FROM CRASHING
         */
+    private void castVote(){
+        
         
     try
        { 
@@ -263,9 +269,30 @@ public class Voting_System_App extends javax.swing.JFrame {
               
               voteList.add(vote);
               JOptionPane.showMessageDialog(this, "Vote Successfully", "Completed", JOptionPane.PLAIN_MESSAGE);
-        
+ 
     }
+ 
     
+    
+    /*
+      A SAVE TO FILE METHOD THAT SERIALIZES THE VOTER CLASS OBJECTS INTO A BINARY FILE
+      SAVING VOTERS INTO A BINARY FILE FOR SECURITY PURPOSES AND DATA INTEGRITY
+    */
+    private void saveToFile(){
+        
+        
+        try
+           {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("voters.dat"));
+            out.writeObject(voteList);
+            JOptionPane.showMessageDialog(this, "Voter added successfully into VOTELIST", "VOTE COMPLETED", JOptionPane.INFORMATION_MESSAGE);
+            out.close();
+            
+           }catch(IOException e){
+               JOptionPane.showMessageDialog(this, "Saving not successful", "VOTING_ERROR", JOptionPane.ERROR_MESSAGE);
+               return;
+           }       
+    }
     
     
     
