@@ -108,6 +108,11 @@ public class Voting_System_App extends javax.swing.JFrame {
         btnSearch.setText("SEARCH");
 
         btnShowVoters.setText("SHOW VOTERS");
+        btnShowVoters.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowVotersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,13 +194,20 @@ public class Voting_System_App extends javax.swing.JFrame {
         clear();
     }//GEN-LAST:event_btnClearActionPerformed
 
+    
     private void btnVoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoteActionPerformed
         castVote();
     }//GEN-LAST:event_btnVoteActionPerformed
 
+    
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    
+    private void btnShowVotersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowVotersActionPerformed
+        displayVoters();
+    }//GEN-LAST:event_btnShowVotersActionPerformed
 
     
     
@@ -315,8 +327,19 @@ public class Voting_System_App extends javax.swing.JFrame {
     
     
     
-    
-    
+    /*
+      DISPLAY METHOD TO CALL THE TEXT AREA AND DISPLAY THE LIST OF PEOPLE WHO ALREADY VOTED
+      FOR FASTER PERFORMANCE WE WILL USE THE ARRAYLIST TO DISPLAY 
+    */
+    private void displayVoters(){
+        
+        StringBuilder builder = new StringBuilder();
+        
+        builder.append(String.format("%-15s %-15s %-15s %-15s","VOTER_ID", "NAME", "SURNAME","CANDIDATE" ));
+        
+        
+        lblDisplay.setText(builder.toString());
+    }
     
     
     
