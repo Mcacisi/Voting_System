@@ -1,11 +1,13 @@
 
 package voting;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Mcacisi Sithole
  */
-public class Voter {
+public class Voter implements Serializable{
     //VARIABLES USED FOT THE SYSTEM
    
     private String voterID, name, surname, candidateVoted;

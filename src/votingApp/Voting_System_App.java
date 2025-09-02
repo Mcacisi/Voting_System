@@ -4,8 +4,11 @@
  */
 package votingApp;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -29,6 +32,7 @@ public class Voting_System_App extends javax.swing.JFrame {
      */
     public Voting_System_App() {
         initComponents();
+        LoadFromFile();
     }
 
     /**
@@ -92,6 +96,7 @@ public class Voting_System_App extends javax.swing.JFrame {
 
         lblDisplay.setEditable(false);
         lblDisplay.setColumns(20);
+        lblDisplay.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         lblDisplay.setRows(5);
         jScrollPane1.setViewportView(lblDisplay);
 
@@ -207,6 +212,7 @@ public class Voting_System_App extends javax.swing.JFrame {
     
     private void btnShowVotersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowVotersActionPerformed
         displayVoters();
+        LoadFromFile();
     }//GEN-LAST:event_btnShowVotersActionPerformed
 
     
@@ -350,6 +356,34 @@ public class Voting_System_App extends javax.swing.JFrame {
     }
     
     
+    
+    
+    /*
+      THIS LOAD FROM FILE METHOD DESERIALIZES SEQUENCE OF BYTES BACK TO VOTER OBJECTS SAVED IIN THE
+      BINARY FILE VOTERS.DAT
+    */
+    private void LoadFromFile(){
+        
+        try
+           {
+            File myFile = new File("voters.dat");
+            
+            if(myFile.exists()){
+                
+               ObjectInputStream in = new ObjectInputStream(new FileInputStream(myFile));
+               voteList = (ArrayList<Voter>)in.readObject();
+               JOptionPane.showMessageDialog(this, "LOADING FILE......", "RELOAD DATA", JOptionPane.PLAIN_MESSAGE);
+               in.close();
+               
+            } 
+            
+            
+           }catch(IOException | ClassNotFoundException e){
+               JOptionPane.showMessageDialog(this, "Loading voters from file failed", "LOADING_ERROR", JOptionPane.ERROR_MESSAGE);
+               return;
+               
+           }
+    }
     
     
     
