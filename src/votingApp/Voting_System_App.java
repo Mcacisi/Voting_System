@@ -202,6 +202,7 @@ public class Voting_System_App extends javax.swing.JFrame {
     
     private void btnVoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoteActionPerformed
         castVote();
+        saveToFile();
     }//GEN-LAST:event_btnVoteActionPerformed
 
     
@@ -322,7 +323,7 @@ public class Voting_System_App extends javax.swing.JFrame {
            {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("voters.dat"));
             out.writeObject(voteList);
-            JOptionPane.showMessageDialog(this, "Voter added successfully into VOTELIST", "VOTE COMPLETED", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Voter added successfully into VOTELIST", "VOTE FILE CREATED", JOptionPane.INFORMATION_MESSAGE);
             out.close();
             
            }catch(IOException e){
@@ -330,6 +331,7 @@ public class Voting_System_App extends javax.swing.JFrame {
                return;
            }       
     }
+    
     
     
     
@@ -341,11 +343,11 @@ public class Voting_System_App extends javax.swing.JFrame {
         
         StringBuilder builder = new StringBuilder();
         
-        builder.append(String.format("%-20s %-20s %-20s %-20s","VOTER_ID", "NAME", "SURNAME","CANDIDATE\n" ));
+        builder.append(String.format("%-15s %-15s %-15s %-15s","VOTER_ID", "NAME", "SURNAME","CANDIDATE\n" ));
         
         
         for(Voter v : voteList){       
-                builder.append(String.format("%-20s %-20s %-20s %-20s",
+                builder.append(String.format("%-15s %-15s %-15s %-15s\n",
                                v.getVoterID(),
                                v.getName(),
                                v.getSurname(),
@@ -381,7 +383,6 @@ public class Voting_System_App extends javax.swing.JFrame {
            }catch(IOException | ClassNotFoundException e){
                JOptionPane.showMessageDialog(this, "Loading voters from file failed", "LOADING_ERROR", JOptionPane.ERROR_MESSAGE);
                return;
-               
            }
     }
     
