@@ -13,6 +13,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import voting.Voter;
+import votingApp.features.RemoveForm;
+import votingApp.features.SearchForm;
 
 /**
  *
@@ -108,10 +110,23 @@ public class Voting_System_App extends javax.swing.JFrame {
             }
         });
 
+        btnRemove.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRemove.setText("Remove");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
 
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
+        btnShowVoters.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnShowVoters.setText("SHOW VOTERS");
         btnShowVoters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +230,18 @@ public class Voting_System_App extends javax.swing.JFrame {
         displayVoters();
         LoadFromFile();
     }//GEN-LAST:event_btnShowVotersActionPerformed
+
+    
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        SearchForm search = new SearchForm();
+        search.setVisible(true);
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        RemoveForm remove = new RemoveForm();
+        remove.setVisible(true);
+    }//GEN-LAST:event_btnRemoveActionPerformed
 
     
     
